@@ -16,12 +16,14 @@ const publicPath = path.join(__dirname, './public');
 app.set('view engine', 'html');
 app.set('views', publicPath);
 app.use(express.static(publicPath));
+
 var data=[{"Room_ID":"2331","ScreenShot_URL":"https://s.abcnews.com/images/GMA/abc_gma_schriffen_130609_wg.jpg","ufm_activity":"Cheating","Camera_ID":"6201","Time":"9.00 am"},
 {"Room_ID":"2331","ScreenShot_URL":"https://s.abcnews.com/images/GMA/abc_gma_schriffen_130609_wg.jpg","ufm_activity":"Cheating","Camera_ID":"6201","Time":"9.00 am"},
 {"Room_ID":"2331","ScreenShot_URL":"https://s.abcnews.com/images/GMA/abc_gma_schriffen_130609_wg.jpg","ufm_activity":"Cheating","Camera_ID":"6201","Time":"9.00 am"},
 {"Room_ID":"2331","ScreenShot_URL":"https://s.abcnews.com/images/GMA/abc_gma_schriffen_130609_wg.jpg","ufm_activity":"Cheating","Camera_ID":"6201","Time":"9.00 am"},
 {"Room_ID":"2331","ScreenShot_URL":"https://s.abcnews.com/images/GMA/abc_gma_schriffen_130609_wg.jpg","ufm_activity":"Cheating","Camera_ID":"6201","Time":"9.00 am"},
 {"Room_ID":"2331","ScreenShot_URL":"https://s.abcnews.com/images/GMA/abc_gma_schriffen_130609_wg.jpg","ufm_activity":"Cheating","Camera_ID":"6201","Time":"9.00 am"}]
+
 var ref1=firebase.database().ref();
 for(var i=0;i<data.length;i++)
 {
@@ -91,5 +93,5 @@ app.get('/', (req, res) => {
 })
 app.listen(5000,()=>
 {
-    console.log("server running")
+    console.log("server runnin at port 5000")
 })

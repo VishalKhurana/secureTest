@@ -39,7 +39,13 @@ var div_=document.getElementById('div_');
     var img12 = $(`<img id="dynamic" >`); //Equivalent: $(document.createElement('img'))
     img12.attr('src', obj.ScreenShot_URL);
 
-    var div99=$((`<div id="myDiv"><p id="hid" >${key}</p><br><span>Camera id:${obj.Camera_ID}</span><br><span>Room_ID:${obj.Room_ID}</span><br><span>Time:${obj.Time}</span><br><span>Activity:${obj.ufm_activity}</span></div>`));
+        // <p id="hid" >${key}</p><br>
+    var div99=$((`<div id="myDiv">
+        <h3><span>Camera id</span> : ${obj.Camera_ID}</h3>
+        <h3><span>Room id</span> : ${obj.Room_ID}</h3>
+        <h3><span>Time</span> : ${obj.Time}</h3>
+        <h3><span>Activity</span> : ${obj.ufm_activity}</h3>
+        </div>`));
     //   $('#hid').hide();
     div99.append(($(`<button id="checked">Checked</button>`).click((ev)=>{
         var $this=$(ev.target.parentElement)
@@ -48,7 +54,7 @@ var div_=document.getElementById('div_');
         // console.log(ev.target.parentElement.find('div'))
 
     })));
-    div99.append($(`<button id="del">Delete</button></div>`).click((ev)=>{
+    div99.append($(`<button id="del">Delete</button></div><br>`).click((ev)=>{
         
         var $this=$(ev.target.parentElement)
         console.log($this.find('p').text())

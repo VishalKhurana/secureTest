@@ -91,7 +91,9 @@ app.post("/delete", (req,res) => {
 app.get('/', (req, res) => {
     res.render('index')
 })
-app.listen(5000 || process.env.PORT ,() =>
+const PORT = process.env.PORT || 5000;
+
+app.listen( PORT,() =>
 {
     console.log("server runnin at port 5000")
 })

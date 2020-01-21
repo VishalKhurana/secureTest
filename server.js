@@ -68,6 +68,23 @@ app.post("/delete", (req,res) => {
   console.log(req.body.id);
   ref1.child(req.body.id).remove();
   });
+  
+  app.post('/api/activity/',(req,res)=>{
+    const newActivity = {
+      Room_ID:req.body.Room_ID,
+      ScreenShot_URL:req.body.ScreenShot_URL,
+      ufm_activity:req.body.ufm_activity,
+      Camera_ID:req.body.Camera_ID,
+      Time:req.body.Time
+    }
+    var d=Math.random();
+    var ref=firebase.database().ref().child('students'+d.toString());
+    ref.child("Room_ID").set(newActivity.Room_ID)
+    ref.child("ScreenShot_URL").set(newActivity.ScreenShot_URL)
+    ref.child("ufm_activity").set(newActivity.ufm_activity)
+    ref.child("Camera_ID").set(newActivity.Camera_ID)
+    ref.child("Time").set(newActivity.Time)
+});
 // var leadsRef = database.ref('leads');
 // leadsRef.on('value', function(snapshot) {
 //     snapshot.forEach(function(childSnapshot) {

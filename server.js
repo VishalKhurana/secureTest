@@ -16,14 +16,15 @@ const publicPath = path.join(__dirname, './public');
 app.set('view engine', 'html');
 app.set('views', publicPath);
 app.use(express.static(publicPath));
+// app.use('/candidates',express.static(__dirname+'/public/candidates.html'))
 
-var data=[{"Room_ID":"2331","ScreenShot_URL":"https://s.abcnews.com/images/GMA/abc_gma_schriffen_130609_wg.jpg","ufm_activity":"Cheating","Camera_ID":"6201","Time":"9.00 am"},
-{"Room_ID":"2331","ScreenShot_URL":"https://s.abcnews.com/images/GMA/abc_gma_schriffen_130609_wg.jpg","ufm_activity":"Cheating","Camera_ID":"6201","Time":"9.00 am"},
-{"Room_ID":"2331","ScreenShot_URL":"https://s.abcnews.com/images/GMA/abc_gma_schriffen_130609_wg.jpg","ufm_activity":"Cheating","Camera_ID":"6201","Time":"9.00 am"},
-{"Room_ID":"2331","ScreenShot_URL":"https://s.abcnews.com/images/GMA/abc_gma_schriffen_130609_wg.jpg","ufm_activity":"Cheating","Camera_ID":"6201","Time":"9.00 am"},
-{"Room_ID":"2331","ScreenShot_URL":"https://s.abcnews.com/images/GMA/abc_gma_schriffen_130609_wg.jpg","ufm_activity":"Cheating","Camera_ID":"6201","Time":"9.00 am"},
-{"Room_ID":"2331","ScreenShot_URL":"https://s.abcnews.com/images/GMA/abc_gma_schriffen_130609_wg.jpg","ufm_activity":"Cheating","Camera_ID":"6201","Time":"9.00 am"},
-{"Room_ID":"2332","ScreenShot_URL":"https://s.abcnews.com/images/GMA/abc_gma_schriffen_130609_wg.jpg","ufm_activity":"Cheating","Camera_ID":"6201","Time":"9.00 am"}]
+var data=[{"Room_ID":"2331","ScreenShot_URL":"https://image.shutterstock.com/image-photo/high-school-students-cheating-passing-260nw-663036415.jpg","ufm_activity":"Cheating","Camera_ID":"6201","Time":"9.00 am"},
+{"Room_ID":"2331","ScreenShot_URL":"https://image.shutterstock.com/image-photo/high-school-students-cheating-passing-260nw-663036415.jpg","ufm_activity":"Cheating","Camera_ID":"6201","Time":"9.00 am"},
+{"Room_ID":"2331","ScreenShot_URL":"https://image.shutterstock.com/image-photo/high-school-students-cheating-passing-260nw-663036415.jpg","ufm_activity":"Cheating","Camera_ID":"6201","Time":"9.00 am"},
+{"Room_ID":"2331","ScreenShot_URL":"https://image.shutterstock.com/image-photo/high-school-students-cheating-passing-260nw-663036415.jpg","ufm_activity":"Cheating","Camera_ID":"6201","Time":"9.00 am"},
+{"Room_ID":"2331","ScreenShot_URL":"https://image.shutterstock.com/image-photo/high-school-students-cheating-passing-260nw-663036415.jpg","ufm_activity":"Cheating","Camera_ID":"6201","Time":"9.00 am"},
+{"Room_ID":"2331","ScreenShot_URL":"https://image.shutterstock.com/image-photo/high-school-students-cheating-passing-260nw-663036415.jpg","ufm_activity":"Cheating","Camera_ID":"6201","Time":"9.00 am"},
+{"Room_ID":"2332","ScreenShot_URL":"https://image.shutterstock.com/image-photo/high-school-students-cheating-passing-260nw-663036415.jpg","ufm_activity":"Cheating","Camera_ID":"6201","Time":"9.00 am"}]
 
 var ref1=firebase.database().ref();
 for(var i=0;i<data.length;i++)

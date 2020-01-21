@@ -22,7 +22,8 @@ var data=[{"Room_ID":"2331","ScreenShot_URL":"https://s.abcnews.com/images/GMA/a
 {"Room_ID":"2331","ScreenShot_URL":"https://s.abcnews.com/images/GMA/abc_gma_schriffen_130609_wg.jpg","ufm_activity":"Cheating","Camera_ID":"6201","Time":"9.00 am"},
 {"Room_ID":"2331","ScreenShot_URL":"https://s.abcnews.com/images/GMA/abc_gma_schriffen_130609_wg.jpg","ufm_activity":"Cheating","Camera_ID":"6201","Time":"9.00 am"},
 {"Room_ID":"2331","ScreenShot_URL":"https://s.abcnews.com/images/GMA/abc_gma_schriffen_130609_wg.jpg","ufm_activity":"Cheating","Camera_ID":"6201","Time":"9.00 am"},
-{"Room_ID":"2331","ScreenShot_URL":"https://s.abcnews.com/images/GMA/abc_gma_schriffen_130609_wg.jpg","ufm_activity":"Cheating","Camera_ID":"6201","Time":"9.00 am"}]
+{"Room_ID":"2331","ScreenShot_URL":"https://s.abcnews.com/images/GMA/abc_gma_schriffen_130609_wg.jpg","ufm_activity":"Cheating","Camera_ID":"6201","Time":"9.00 am"},
+{"Room_ID":"2332","ScreenShot_URL":"https://s.abcnews.com/images/GMA/abc_gma_schriffen_130609_wg.jpg","ufm_activity":"Cheating","Camera_ID":"6201","Time":"9.00 am"}]
 
 var ref1=firebase.database().ref();
 for(var i=0;i<data.length;i++)
@@ -37,6 +38,26 @@ for(var i=0;i<data.length;i++)
 
 }
 // ref1.child('students3').remove();
+app.get('/detects', (req, res) =>{
+    if (!req.body) {
+        return res.status(400).json({
+          status: 'error',
+          error: 'req body cannot be empty',
+        });
+      }
+
+    
+var ref1 = firebase.database().ref();
+
+ref1.once("value", function(snapshot) {
+   console.log(snapshot.val());
+   res.status(200).json(snapshot.val())
+ 
+}, function (error) {
+   console.log("Error: " + error.code);
+});
+
+})
 app.post("/delete", (req,res) => {
    
         if (!req.body) {
@@ -57,17 +78,13 @@ app.post("/delete", (req,res) => {
       Camera_ID:req.body.Camera_ID,
       Time:req.body.Time
     }
-    console.log(newActivity)
     var d=Math.random();
-    var ref=firebase.database().ref().child('student' + (Math.floor(5 + (Math.random() * (10000 - 5 + 1)))).toString() );
+    var ref=firebase.database().ref().child('students'+d.toString());
     ref.child("Room_ID").set(newActivity.Room_ID)
     ref.child("ScreenShot_URL").set(newActivity.ScreenShot_URL)
     ref.child("ufm_activity").set(newActivity.ufm_activity)
     ref.child("Camera_ID").set(newActivity.Camera_ID)
     ref.child("Time").set(newActivity.Time)
-    
-    console.log('sent')
-    res.status(200).json({"api": "sent"})
 });
 // var leadsRef = database.ref('leads');
 // leadsRef.on('value', function(snapshot) {
@@ -89,29 +106,6 @@ app.post("/delete", (req,res) => {
 // ref.orderByKey().limitToLast(1).on('child_added',(snap)=>{
 //   console.log('added',snap.val());
 // });
-
-
-app.get('/detects', (req, res) =>{
-    if (!req.body) {
-        return res.status(400).json({
-          status: 'error',
-          error: 'req body cannot be empty',
-        });
-      }
-
-    
-var ref1 = firebase.database().ref();
-
-ref1.on("value", function(snapshot) {
-   console.log(snapshot.val());
-   res.status(200).json(snapshot.val())
- 
-}, function (error) {
-   console.log("Error: " + error.code);
-});
-
-})
-
 app.get('/', (req, res) => {
     res.render('index')
 })

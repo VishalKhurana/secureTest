@@ -77,13 +77,16 @@ app.post("/delete", (req,res) => {
       Camera_ID:req.body.Camera_ID,
       Time:req.body.Time
     }
+    console.log('tesdhjdsfgulasdfghjjhagdsjghdfsagjl');
     var d=Math.random();
-    var ref=firebase.database().ref().child('students'+d.toString());
+    var ref=firebase.database().ref().child('students9999');
     ref.child("Room_ID").set(newActivity.Room_ID)
     ref.child("ScreenShot_URL").set(newActivity.ScreenShot_URL)
     ref.child("ufm_activity").set(newActivity.ufm_activity)
     ref.child("Camera_ID").set(newActivity.Camera_ID)
     ref.child("Time").set(newActivity.Time)
+    console.log('sakakak')
+    res.status(200).json({"api": "sent"})
 });
 // var leadsRef = database.ref('leads');
 // leadsRef.on('value', function(snapshot) {
